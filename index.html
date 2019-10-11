@@ -152,6 +152,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java面向对象知识点总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/11/java面向对象知识点总结/">java面向对象知识点总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/11/java面向对象知识点总结/" class="archive-article-date">
+  	<time datetime="2019-10-11T07:05:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h3><p>1,什么是类?什么是对象?<br>简单来说,类是抽象出某一类事物的行为和特征,并进行的封装,特征称之为属性,行为称之为方法;<br>对象就是这一类的具体实例,对象拥有这个类的所有属性和方法</p>
+<p>举个例子:<br>所有的人是一个类,人所具有的属性:身高和体重…,人具有的方法:吃饭,睡觉..<br>具体到某一个人是一个对象,比如小明就是一个对象,小明有身高,体重,可以吃饭,可以睡觉..</p>
+<p>java编程思想中是这么描述对象的:<br>对象具有状态,行为,和标识.这意味着每一个对象都可以拥有内部数据(它们给出了该对象的状态)和方法(它们产生行为),并且每一个对象都可以与其他对象区分开来,具体来说,就是每一个对象在内存中都有一个唯一的地址.</p>
+<p>2,什么是面向对象?为什么要面向对象?<br>官方话:<br>面向对象（Object Oriented）是一种新兴的程序设计方法，或者是一种新的程序设计规范(paradigm)，其基本思想是使用对象、类、继承、封装、多态等基本概念来进行程序设计。从现实世界中客观存在的事物（即对象）出发来构造软件系统，并且在系统构造中尽可能运用人类的自然思维方式。面向对象是为了解决系统的可维护性，可扩展性，可重用性….<br>我的理解:<br>首先,面向对象是一种设计程序的方式,是一种设计思想.<br>其次,面向对象节省代码,思路清晰,便于扩展.你所创建出的对象就是给你提供服务的.</p>
+<h3 id="第二章-类和对象的创建"><a href="#第二章-类和对象的创建" class="headerlink" title="第二章 类和对象的创建"></a>第二章 类和对象的创建</h3><p>概念：面向对象就是把一个项目，一个事情分成更小的项目，或者说分成一个个更小的部分，每一部分负责什么方面的功能，最后再由这些部分组合而成为一个整体。<br>好处：面相对象更接近实物的本质，提高代码的复用更具有扩展性。<br>如何使用：通常是创建类的对象再给属性赋值。<br>构造方法：构造方法的名称和类名相同，没有返回值类型。<br>GO g=new GO();<br>构造方法的重载：方法名相同，参数列表（个数，类型，顺序）不同，这是构造方法的重载。<br>如果一个类中包含了两个或两个以上的方法，他们方法名相同，方法参数个数或者参数类型不同，则称该方法被重载了，这个过程是方法重载。<br>构造方法在什么时候执行：<br>New出对象；<br>在继承中执行super();<br>做一些初始化操作<br>Static：<br>可以用来修饰属性，方法和代码块，静态方法中不能使用this和super关键字。<br>类名.属性  类名.方法 </p>
+<h3 id="第三章-封装"><a href="#第三章-封装" class="headerlink" title="第三章 封装"></a>第三章 封装</h3><p>概念：封装指的是将对象的状态信息隐藏在对象内部，不允许外部程序直接访问对象内部信息，而是通过该类所提供的方法来实现对内部信息的操作访问。</p>
+<p>封装的必要步骤：</p>
+<p>属性私有化private；</p>
+<p>为属性设置set和get方法；</p>
+<p>调用set和get方法；</p>
+<p>好处（作用）：提高了安全性   提高了复用性  提高了实现细节(隐藏实现细节)</p>
+<p>访问权限：</p>
+<p>Public :权限最高，在项目不管声明情况下都可访问</p>
+<p>Private：私有的，权限最低，只能在一个类才能访问</p>
+<p>Protected：安全的，同包下可以进行访问</p>
+<p>Default默认的，同包下可以访问，继承不可访问</p>
+<p>this关键字</p>
+<p>指代当前对象；</p>
+<p>在同一个类中，this.属性  this.方法</p>
+<p>注意事项：类的属性中均用private来修饰  定义概念：封装指的是将对象的状态信息隐藏在对象内部，不允许外部程序直接访问对象内部信息，而是通过该类所提供的方法来实现对内部信息的操作访问。<br>封装的必要步骤：<br>属性私有化private；<br>为属性设置set和get方法；<br>调用set和get方法；<br>好处（作用）：提高了安全性   提高了复用性  提高了实现细节(隐藏实现细节)<br>访问权限：<br>Public :权限最高，在项目不管声明情况下都可访问<br>Private：私有的，权限最低，只能在一个类才能访问<br>Protected：安全的，同包下可以进行访问<br>Default默认的，同包下可以访问，继承不可访问</p>
+<p>this关键字<br>指代当前对象；<br>在同一个类中，this.属性  this.方法<br>注意事项：类的属性中均用private来修饰  定义geter和seter方法()和seter()方法</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/11/java面向对象知识点总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-web前端基础第一章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -227,23 +310,10 @@
         moveId=setInterval(LeftMove,10);//设置一个10毫秒定时器
     }
 
-<p>​<br>    timeId=setInterval(divInterval,2000);//设置一个3秒的定时器。</p>
-<pre><code>function stop(){
-    clearInterval(timeId);
-}
-function start(){
-    clearInterval(timeId);
-    timeId=setInterval(divInterval,2000);
-}
+<p>​<br>​    timeId=setInterval(divInterval,2000);//设置一个3秒的定时器。<br>​    </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function stop()&#123;</span><br><span class="line">	clearInterval(timeId);</span><br><span class="line">&#125;</span><br><span class="line">function start()&#123;</span><br><span class="line">	clearInterval(timeId);</span><br><span class="line">	timeId=setInterval(divInterval,2000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//页面失去焦点停止</span><br><span class="line">onblur = function()&#123;</span><br><span class="line">	stop();</span><br><span class="line">&#125;</span><br><span class="line">//页面获取焦点时开始</span><br><span class="line">onfocus = function()&#123;</span><br><span class="line">	start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-//页面失去焦点停止
-onblur = function(){
-    stop();
-}
-//页面获取焦点时开始
-onfocus = function(){
-    start();
-}</code></pre><p></script><p></p>
+<p></script><p></p>
 </head>
 <body>
     <div id="box" onmouseover="stop()" onmouseout="start()">
@@ -253,7 +323,6 @@ onfocus = function(){
     </div>
 </body>
 </html>
-
       
 
       
@@ -266,81 +335,6 @@ onfocus = function(){
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2019/10/10/web前端基础第一章/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/10/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/10/hello-world/" class="archive-article-date">
-  	<time datetime="2019-10-10T03:12:56.857Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/10/hello-world/">展开全文 >></a>
         </p>
       
 

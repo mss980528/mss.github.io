@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="这是web第一章第一章内容    轮播图      #box{         width:100px;         height:100px;         border:1px solid black;         position:relative;         overflow:hidden;     }     #red{         background-color:">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-10T14:17:53.760Z">
+<meta property="og:updated_time" content="2019-10-11T07:48:14.602Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web前端基础第一章">
 <meta name="twitter:description" content="这是web第一章第一章内容    轮播图      #box{         width:100px;         height:100px;         border:1px solid black;         position:relative;         overflow:hidden;     }     #red{         background-color:">
@@ -229,23 +229,10 @@
         moveId=setInterval(LeftMove,10);//设置一个10毫秒定时器
     }
 
-<p>​<br>    timeId=setInterval(divInterval,2000);//设置一个3秒的定时器。</p>
-<pre><code>function stop(){
-    clearInterval(timeId);
-}
-function start(){
-    clearInterval(timeId);
-    timeId=setInterval(divInterval,2000);
-}
+<p>​<br>​    timeId=setInterval(divInterval,2000);//设置一个3秒的定时器。<br>​    </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function stop()&#123;</span><br><span class="line">	clearInterval(timeId);</span><br><span class="line">&#125;</span><br><span class="line">function start()&#123;</span><br><span class="line">	clearInterval(timeId);</span><br><span class="line">	timeId=setInterval(divInterval,2000);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//页面失去焦点停止</span><br><span class="line">onblur = function()&#123;</span><br><span class="line">	stop();</span><br><span class="line">&#125;</span><br><span class="line">//页面获取焦点时开始</span><br><span class="line">onfocus = function()&#123;</span><br><span class="line">	start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-//页面失去焦点停止
-onblur = function(){
-    stop();
-}
-//页面获取焦点时开始
-onfocus = function(){
-    start();
-}</code></pre><p></script><p></p>
+<p></script><p></p>
 </head>
 <body>
     <div id="box" onmouseover="stop()" onmouseout="start()">
@@ -255,7 +242,6 @@ onfocus = function(){
     </div>
 </body>
 </html>
-
       
 
       
@@ -348,11 +334,15 @@ onfocus = function(){
   
 <nav id="article-nav">
   
-  
-    <a href="/2019/10/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
+    <a href="/2019/10/11/java面向对象知识点总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java面向对象知识点总结
+        
+      </div>
     </a>
+  
   
 </nav>
 
