@@ -1,0 +1,1142 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="MySQL数据库管理与应用个人总结, Hexo">
+    <meta name="description" content="MySQL基础与数据库有关的几个概念:
+1.数据(Data):可以被记录并拥有确切含义的已知事实。如:
+人的姓名。数据的种类很多，数字、文字、图形、声音等多种表现形式，都可以经过数字化后存入计算机。2.数据库(DataBase,简称DB):">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>MySQL数据库管理与应用个人总结 | Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        MySQL数据库管理与应用个人总结
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-10-17
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    10 Min
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="MySQL基础"><a href="#MySQL基础" class="headerlink" title="MySQL基础"></a>MySQL基础</h2><p><strong>与数据库有关的几个概念:</strong></p>
+<p>1.数据(Data):可以被记录并拥有确切含义的已知事实。如:</p>
+<pre><code>人的姓名。数据的种类很多，数字、文字、图形、声音等多种表现形式，都可以经过数字化后存入计算机。</code></pre><p>2.数据库(DataBase,简称DB):是一个相关数据的集合。如:</p>
+<pre><code>学生数据库
+
+3.数据库管理系统(DataBase Management System，简称DBMS):
+
+帮助用户创建和管理数据库的应用程序的集合。如SQL Server、Oracle 、Access等。</code></pre><p>4.数据库系统(DataBase System, 简称DBS):一 般把数据</p>
+<pre><code>库和DBMS软件合称为数据库系统。</code></pre><p>5.数据表(Table)(关系)</p>
+<blockquote>
+<p>一个数据库由若干数据表组成。<br>数 据表是一组相关联的数据按行和列排列的二维表格，每个数据表均有一个表名。</p>
+</blockquote>
+<p>6.字段(Field)(属性)</p>
+<blockquote>
+<p>表中的每一列数据称为一一个字段<br>字段名:每个字段的名称。</p>
+</blockquote>
+<p>7.记录(元组)</p>
+<blockquote>
+<p>表中的每一行称为一-条记录一个数据表是若干记录的集合。</p>
+<img src="C:\Users\Administrator\Desktop\tab.png" style="zoom:50%;">
+</blockquote>
+<p><strong>文件管理阶段的主要特点:</strong><br>1.辅助存储器成为计算机系统不可缺少的组成部分，,用来存入数据文件。</p>
+<p>2.文件管理系统对驻留在外存储器上的数据文件实施统一管理。应用程序不再需要了解数据在存储介质上的实际地址及存放形式，从而大大减少了程序员的工作量。</p>
+<p>3.数据文件可以重复利用，不再与某个应用程序绑在一起。<br>数据文件结构与程序之间的依赖关系并没有根本改变，因此<br>它的缺陷依然是存在的。</p>
+<p>缺点;主要表现在程序和文件相互依存、数据冗余大、数据的<br>不一致性及不能反</p>
+<p><strong>常见的数据库管理系统</strong></p>
+<p>数据库市场上有许多数据库(DBMS)产品，<br>当前，例如:<br>■Oracle</p>
+<p>■Microsoft SQL Server</p>
+<p>■Sybase ASE</p>
+<p>■IBM DB2</p>
+<p>■Microsoft Access</p>
+<p>■Visual FoxPro<br>它们各以自已特有的功能在数据库市场上占有席之地。</p>
+<p>–员工表表</p>
+<figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## `select * from emp;`</span></span><br><span class="line"></span><br><span class="line">`<span class="keyword">select</span> * <span class="keyword">from</span> dept;`</span><br><span class="line">`<span class="comment">--工资表`</span></span><br><span class="line">`<span class="keyword">select</span> * <span class="keyword">from</span> salgrade;`</span><br><span class="line">`<span class="keyword">select</span> * <span class="keyword">from</span> bonus;`</span><br><span class="line">`<span class="comment">--查询员工表中的员工编号、姓名、工资` </span></span><br><span class="line">`<span class="keyword">select</span> empno,ename,sal <span class="keyword">from</span> emp;`</span><br><span class="line">`<span class="comment">--查询员工表中的员工编号、姓名、工资、年薪`</span></span><br><span class="line">`<span class="keyword">select</span> empno,ename,sal,sal*<span class="number">12</span> <span class="keyword">from</span> emp;`</span><br><span class="line">`<span class="comment">--别名  as可以省略`</span></span><br><span class="line">`<span class="keyword">select</span> empno <span class="keyword">as</span> 员工编号,ename <span class="keyword">as</span> 员工姓名 <span class="keyword">from</span> emp;`</span><br><span class="line"></span><br><span class="line">`<span class="keyword">select</span> empno 员工编号,ename 员工姓名,sal 月薪,sal*<span class="number">13</span> 年薪 <span class="keyword">from</span> emp;</span><br><span class="line"><span class="comment">--小写加""号</span></span><br><span class="line"><span class="keyword">select</span> empno <span class="string">"eo"</span> <span class="keyword">from</span> emp;</span><br><span class="line"><span class="comment">--在数据库中||做连接符相当于Java中的+号  必须单引号  </span></span><br><span class="line"><span class="keyword">select</span> ename ||<span class="string">'的月薪是'</span>||sal 间接 <span class="keyword">from</span> emp;</span><br><span class="line"><span class="comment">--去除重复行</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> sal <span class="keyword">from</span> emp;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> ename,sal <span class="keyword">from</span> emp;</span><br><span class="line"><span class="comment">--排序 order by 排序  升序asc(默认)  降序desc  *代表所有</span></span><br><span class="line"><span class="keyword">select</span> *<span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">asc</span>;</span><br><span class="line"><span class="keyword">select</span> *<span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">desc</span>;</span><br><span class="line"><span class="keyword">select</span> *<span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">asc</span>,ename <span class="keyword">asc</span>;</span><br><span class="line"><span class="keyword">select</span> *<span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal <span class="keyword">asc</span>,ename <span class="keyword">desc</span>;</span><br><span class="line"><span class="keyword">select</span> *<span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> sal,ename ;</span><br><span class="line"><span class="keyword">select</span> ename 姓名，sal 工资，empno 编号 <span class="keyword">from</span> emp <span class="keyword">order</span> <span class="keyword">by</span> 工资 <span class="keyword">asc</span>,姓名 <span class="keyword">asc</span>;</span><br><span class="line"><span class="comment">--查询A-B之间</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="keyword">between</span> <span class="number">800</span> <span class="keyword">and</span> <span class="number">1000</span>;`</span><br><span class="line">`<span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> sal &gt;=<span class="number">800</span> <span class="keyword">and</span> sal &lt;=<span class="number">1000</span>;`</span><br><span class="line">`<span class="comment">--in （集合）属于集合中的一个`</span></span><br><span class="line">`<span class="keyword">select</span> * <span class="keyword">from</span> emp <span class="keyword">where</span> sal <span class="keyword">in</span>(<span class="number">800</span>,<span class="number">900</span>,<span class="number">1000</span>,<span class="number">1250</span>);`</span><br><span class="line">`<span class="keyword">select</span> *<span class="keyword">from</span> emp <span class="keyword">where</span> sal =<span class="number">800</span> <span class="keyword">or</span> sal=<span class="number">900</span>;</span><br><span class="line"><span class="comment">--查询奖金为空的人</span></span><br><span class="line"><span class="keyword">select</span>*<span class="keyword">from</span> emp <span class="keyword">where</span> comm <span class="keyword">is</span> <span class="literal">null</span>;`</span><br><span class="line">`<span class="keyword">select</span> *<span class="keyword">from</span> emp <span class="keyword">where</span> comm =<span class="string">''</span></span><br><span class="line"><span class="comment">--like 模糊查询</span></span><br><span class="line"><span class="keyword">select</span>*<span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span><span class="string">'s%'</span><span class="string">`</span></span><br><span class="line"><span class="string">`</span><span class="keyword">select</span>*<span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span><span class="string">'李%'</span><span class="comment">--李字开头的</span></span><br><span class="line"><span class="keyword">select</span>*<span class="keyword">from</span> emp <span class="keyword">where</span> ename <span class="keyword">like</span><span class="string">'李__%'</span><span class="comment">--李xx`</span></span><br><span class="line"><span class="string">`--and or not 运算字符`</span></span><br><span class="line"><span class="string">`select*from emp where sal&gt;900 and ename like 's%'--查询工资大于900并且名字以s开头的</span></span><br><span class="line"><span class="string">select*from emp where sal&gt;900 or like 's%'--查询工资大于900或者名字以s开头的`</span></span><br><span class="line"><span class="string">`select*from emp where sal not in(800,900,1200)--查询工资除了800,900,1200</span></span><br><span class="line"><span class="string">select*from where ename not like 's%'--查询不以s开头的姓名`</span></span><br><span class="line"><span class="string">`--查询员工首字母大写`</span></span><br><span class="line"><span class="string">`select initcap(ename) from emp`</span></span><br><span class="line"><span class="string">`--查询员工首字母全部小写`</span></span><br><span class="line"><span class="string">`select lower(ename)from emp`</span></span><br><span class="line"><span class="string">`--查询员工首字母全部大写`</span></span><br><span class="line"><span class="string">`select upper(ename)from emp`</span></span><br><span class="line"><span class="string">`--左移除`</span></span><br><span class="line"><span class="string">`select ltrim('123admin','123')from emp`</span></span><br><span class="line"><span class="string">`--右移除`</span></span><br><span class="line"><span class="string">`select rtrim('123admin','admin')from emp--不写的话就是删除空格`</span></span><br><span class="line"><span class="string">`--翻译 translate`</span></span><br><span class="line"><span class="string">`select translate('jack','aj','12')from dual`</span></span><br><span class="line"><span class="string">`--替换 replace`</span></span><br><span class="line"><span class="string">`select replace('jack','a','b')from dual`</span></span><br><span class="line"><span class="string">`--查找出现的位置 instr（第一次出现的位置）`</span></span><br><span class="line"><span class="string">`select instr('admin','i',2)from dual`</span></span><br><span class="line"><span class="string">`--截取字符串substr 从第三位开始（包含第三）截取5个`</span></span><br><span class="line"><span class="string">`select substr('abcdefghi',3,5)from dual`</span></span><br><span class="line"><span class="string">`--字符串连接 concat`</span></span><br><span class="line"><span class="string">`select concat('admin','12345')from dual`</span></span><br><span class="line">          <span class="string">`--数值函数`</span></span><br><span class="line"><span class="string">`--1.绝对值`</span></span><br><span class="line"><span class="string">`select abs(-25)from dual`</span></span><br><span class="line"><span class="string">`--2.x的y次幂`</span></span><br><span class="line"><span class="string">`select power(2,3)from dual`</span></span><br><span class="line"><span class="string">`--3.向上取整`</span></span><br><span class="line"><span class="string">`select ceil(12.3)from dual`</span></span><br><span class="line"><span class="string">`--4.向下取整`</span></span><br><span class="line"><span class="string">`select floor(12.8)from dual`</span></span><br><span class="line"><span class="string">`--5.截断(保留小数点后两位)`</span></span><br><span class="line"><span class="string">`select trunc(12.156,2)from dual`</span></span><br><span class="line"><span class="string">`--6.四舍五入(保留小数点后两位)`</span></span><br><span class="line"><span class="string">`select round(12.156,2)from dual`</span></span><br><span class="line"><span class="string">`--7.开平方 sqrt`</span></span><br><span class="line"><span class="string">`select sqrt(4)from dual`</span></span><br><span class="line"><span class="string">`select power(8,1/3)from dual`</span></span><br><span class="line"></span><br><span class="line"><span class="string">`--8.取余 mod`</span></span><br><span class="line"><span class="string">`select mod(10,3)from dual`</span></span><br><span class="line"><span class="string">`--9.取等号 sign(括号里的正负)`</span></span><br><span class="line"><span class="string">`select sign(-25)from dual`</span></span><br><span class="line">                 <span class="string">`--日期函数`</span></span><br><span class="line"><span class="string">`--1.months_between两个日期之间相隔的月份(出生至现在)`</span></span><br><span class="line"><span class="string">`select months_between(sysdate,'5-2月-1995')from dual`</span></span><br><span class="line"><span class="string">`--2.add_months修改月份`</span></span><br><span class="line"><span class="string">`select add_months(sysdate,1)from dual`</span></span><br><span class="line"><span class="string">`--3.next_day返回指定日期后的一个星期几的日期（不包含当前）`</span></span><br><span class="line"><span class="string">`select next_day(sysdate,'星期六')from dual`</span></span><br><span class="line"><span class="string">`--4.last day返回指定日期这个月的最后一天`</span></span><br><span class="line"><span class="string">`select last_day(sysdate)from dual`</span></span><br><span class="line"><span class="string">`--5.日期四舍五入 round`</span></span><br><span class="line"><span class="string">`select round(sysdate,'YEAR')from dual`</span></span><br><span class="line"><span class="string">`select round(sysdate,'month')from dual`</span></span><br><span class="line"><span class="string">`select round(sysdate,'day')from dual`</span></span><br><span class="line"><span class="string">`--6.日期做截断 trunc`</span></span><br><span class="line"><span class="string">`select trunc(sysdate,'YEAR')from dual`</span></span><br><span class="line"><span class="string">`select trunc(sysdate,'month')from dual`</span></span><br><span class="line"><span class="string">`select trunc(sysdate,'day')from dual`</span></span><br><span class="line">              <span class="string">`--转型函数:`</span></span><br><span class="line"> <span class="string">`/*`</span></span><br><span class="line">              <span class="string">`to_number char--&gt;number\`</span></span><br><span class="line"><span class="string">              `</span><span class="keyword">to_date</span>   <span class="built_in">char</span><span class="comment">--&gt;date`</span></span><br><span class="line">              <span class="string">`to_char   number/date--&gt;char`</span></span><br><span class="line"><span class="string">`*/`</span></span><br><span class="line"></span><br><span class="line"><span class="string">`--1.to_char   日期转字符串`</span></span><br><span class="line"><span class="string">`select to_char(sysdate,'yyyy-mm-dd hh24:mi:ss')from dual`</span></span><br><span class="line"><span class="string">`--2.to_datee 字符串转日期`</span></span><br><span class="line"><span class="string">`select to_date('2017年8月16日 16点40分30秒','yyyy"年"mm"月"dd"日" hh24"点"mi"分"ss"秒"')from dual;`</span></span><br><span class="line"><span class="string">`--3.to_number字符串转数值类型`</span></span><br><span class="line"><span class="string">`select to_number('$12,025,87.01`</span><span class="string">','</span>$<span class="number">99</span>,<span class="number">999</span>,<span class="number">99.99</span><span class="string">')from dual</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`--4.to_char 数值转字符串select to_char(1251212.25,'</span>L999,<span class="number">999</span>,<span class="number">99.99</span><span class="string">')from dual`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`--5.时间比较问题`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`select * from emp where hiredate&gt;'</span><span class="number">1</span><span class="number">-1</span>月<span class="number">-81</span><span class="string">'select * from emp where hiredate&gt;to_date('</span><span class="number">1981</span><span class="number">-1</span><span class="number">-1</span><span class="string">','</span>yyyy-mm-dd<span class="string">');select*from emp where to_char(hiredate,'</span>yyyy-mm-dd<span class="string">')&gt;'</span><span class="number">1981</span><span class="number">-1</span><span class="number">-1</span><span class="string">'`</span></span><br><span class="line"><span class="string">  -- 其他函数</span></span><br><span class="line"><span class="string">--1.nvl空转零</span></span><br><span class="line"><span class="string">select ename ,nvl(comm,0)from emp</span></span><br><span class="line"><span class="string">--2.nvl 2</span></span><br><span class="line"><span class="string">select nvl2(comm,'</span>有<span class="string">','</span>太惨了<span class="string">')from emp</span></span><br><span class="line"><span class="string">--4.case when then end</span></span><br><span class="line"><span class="string">`select(case when sal&gt;=5000 then '</span>有钱<span class="string">'`</span></span><br><span class="line"><span class="string">            `when sal&gt;=4000 then '</span>有钱<span class="number">1</span><span class="string">'`</span></span><br><span class="line"><span class="string">            `when sal&gt;=3000 then '</span>有钱<span class="number">2</span><span class="string">'`</span></span><br><span class="line"><span class="string">            `when sal&gt;=2000 then '</span>有钱<span class="number">3</span><span class="string">'`</span></span><br><span class="line"><span class="string">            `else'</span>穷<span class="string">' end)from emp`</span></span><br><span class="line"><span class="string">                    `--多行函数`</span></span><br><span class="line"><span class="string">`--1.sum max min avg count  sum()avg()适用于数值型   count()max()min()适用于任何类型数据`</span></span><br><span class="line"><span class="string">`select max(sal)from emp--最大工资`</span></span><br><span class="line"><span class="string">`select min(sal)from emp--最小工资`</span></span><br><span class="line"><span class="string">`select avg(sal)from emp--平均工资`</span></span><br><span class="line"><span class="string">`select sum(sal)from emp--工资和`</span></span><br><span class="line"><span class="string">`select count(*)from emp--多少个员工select max(sal),min(sal),avg(sal),count(*)from emp--聚合函数可以写在一行`</span></span><br><span class="line"><span class="string">`--聚合函数不可以和单行数据同时展示`</span></span><br><span class="line"><span class="string">`select ename,max(sal)from emp`</span></span><br><span class="line"><span class="string">`--count(*)统计所有select sum(sal)/count(*),avg(sal)from emp--count(exp)统计非空的exp的个数--count(distinct exp)统计非空不重复的exp的个数select count(sal),count(distinct sal)from emp``</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">版权声明：本文为CSDN博主「那些年我睡的女孩」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。</span></span><br><span class="line"><span class="string">原文链接：https://blog.csdn.net/qq_37736906/article/details/77279779</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">​     `查找`</span></span><br><span class="line"><span class="string">`1`</span></span><br><span class="line"><span class="string">`group by 子句将表中数据分成若干小组`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`语法格式`</span></span><br><span class="line"><span class="string">`select column, group_function(column)`</span></span><br><span class="line"><span class="string">`from table`</span></span><br><span class="line"><span class="string">`[where condition]`</span></span><br><span class="line"><span class="string">`[group by group_by_expression]`</span></span><br><span class="line"><span class="string">`[order by column];`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`例子` </span></span><br><span class="line"><span class="string">`--统计人数小于5的部门工资` </span></span><br><span class="line"><span class="string">`select avg(sal) from emp group by deptno having count(*)&lt;5` </span></span><br><span class="line"><span class="string">`--统计各部门的最高工资排除最高工资小于3000的部门` </span></span><br><span class="line"><span class="string">`select deptno,max(sal)from emp group by deptno having max(sal)&gt;=3000` </span></span><br><span class="line"><span class="string">`插入` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">2. `往表中插入数据的语句是insert语句，方式有两种，一种是记录值的插入，一种是查询结果的插入` </span></span><br><span class="line"><span class="string">   `记录值的插入语法如下：` </span></span><br><span class="line"><span class="string">   `INSERT INTO table [(column [, column…])]` </span></span><br><span class="line"><span class="string">   `VALUES (value [, value…]);` </span></span><br><span class="line"><span class="string">   `一次插入操作只插入一行` </span></span><br><span class="line"><span class="string">   `例子` </span></span><br><span class="line"><span class="string">   `insert into emp values(9527,'</span>张三<span class="string">','</span>程序员<span class="string">',007,sysdate,20,null,10)--第一种方式常用` </span></span><br><span class="line"><span class="string">   `insert into emp(empno,ename,job)values(9528,'</span>张三丰<span class="string">','</span>武术教练<span class="string">')` </span></span><br><span class="line"><span class="string">   `select * from emp--显示插入后的效果` </span></span><br><span class="line"><span class="string">   `修改` </span></span><br><span class="line"><span class="string">   `Update语句用于修改基本表中元组的某些列，其语法如下：` </span></span><br><span class="line"><span class="string">   `UPDATE table` </span></span><br><span class="line"><span class="string">   `SET column = value [, column = value] …` </span></span><br><span class="line"><span class="string">   `[WHERE condition];` </span></span><br><span class="line"><span class="string">   `其语义是：修改基本表中满足条件表达式的那些元组的列值，需修改的列值在set子句中指出` </span></span><br><span class="line"><span class="string">   `例子`</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>   –修改<br>   </p><figure class="highlight sql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   `<span class="keyword">update</span> emp <span class="keyword">set</span> ename=<span class="string">'张四丰'</span> <span class="keyword">where</span> ename=<span class="string">'FORD'</span><span class="string">`</span></span><br><span class="line"><span class="string">   `</span><span class="keyword">select</span> * <span class="keyword">from</span> emp<span class="string">`</span></span><br><span class="line"><span class="string">   `</span><span class="comment">--把部门为20的所有员工20加500`</span></span><br><span class="line">   <span class="string">`update emp set sal=sal+500 where deptno=20`</span></span><br><span class="line">   <span class="string">`select * from emp`</span></span><br><span class="line"></span><br><span class="line">​     <span class="string">`删除`</span></span><br><span class="line"></span><br><span class="line">​          <span class="string">`删除`</span></span><br><span class="line"> <span class="string">`--删除9528数据`</span></span><br><span class="line"> <span class="string">`delete temp where empno=9528`</span></span><br><span class="line">​    <span class="string">`--输出全部`</span></span><br><span class="line"> <span class="string">`delete temp</span></span><br></pre></td></tr></tbody></table></figure><p></p>
+<p> 数据库的删除请注意<br>————————————————<br>版权声明：本文为CSDN博主「那些年我睡的女孩」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/qq_37736906/article/details/77341402" target="_blank" rel="noopener">https://blog.csdn.net/qq_37736906/article/details/77341402</a></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com" rel="external nofollow noreferrer">John Doe</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2019/10/17/MySQL数据库管理与应用个人总结/">http://yoursite.com/2019/10/17/MySQL数据库管理与应用个人总结/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="http://yoursite.com" target="_blank">John Doe</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2019/10/30/jsp配置/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="jsp配置">
+                        
+                        <span class="card-title">jsp配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            配置Tomcat服务器
+第一步，在Myeclipse下打开MyEclipse/Preferences…（考拉这些截图都是在前几篇经验提到安装的软件上进行的）
+ 
+
+
+第二步，在type filter text中输入Tomcat找到Tomca
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/10/11/java面向对象知识点总结/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="java面向对象知识点总结">
+                        
+                        <span class="card-title">java面向对象知识点总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            第一章1,什么是类?什么是对象?简单来说,类是抽象出某一类事物的行为和特征,并进行的封装,特征称之为属性,行为称之为方法;对象就是这一类的具体实例,对象拥有这个类的所有属性和方法
+举个例子:所有的人是一个类,人所具有的属性:身高和体重…,人
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://yoursite.com" target="_blank">John Doe</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
