@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="第一章1,什么是类?什么是对象?简单来说,类是抽象出某一类事物的行为和特征,并进行的封装,特征称之为属性,行为称之为方法;对象就是这一类的具体实例,对象拥有这个类的所有属性和方法 举个例子:所有的人是一个类,人所具有的属性:身高和体重…,人具有的方法:吃饭,睡觉..具体到某一个人是一个对象,比如小明就是一个对象,小明有身高,体重,可以吃饭,可以睡觉.. java编程思想中是这么描述对象的:对象具有">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-11T08:32:08.024Z">
+<meta property="og:updated_time" content="2019-11-13T02:35:31.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java面向对象知识点总结">
 <meta name="twitter:description" content="第一章1,什么是类?什么是对象?简单来说,类是抽象出某一类事物的行为和特征,并进行的封装,特征称之为属性,行为称之为方法;对象就是这一类的具体实例,对象拥有这个类的所有属性和方法 举个例子:所有的人是一个类,人所具有的属性:身高和体重…,人具有的方法:吃饭,睡觉..具体到某一个人是一个对象,比如小明就是一个对象,小明有身高,体重,可以吃饭,可以睡觉.. java编程思想中是这么描述对象的:对象具有">
@@ -264,7 +264,25 @@
 <p>list. add(99.9);</p>
 <p>list. add(false);</p>
 <p> 使用泛型集合在创建集合对象时指定集合中元素的类型，从集合中取出元素时无须进行类型强制转换，并且如果把非指定类型对象放入集合，会出现编译错误。</p>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
       
 
       
@@ -353,7 +371,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/11/java面向对象知识点总结/" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3awW7rMAwEwP7/T7dAT69AbC9JMe0DxqfATmSNDpKy1MdHfH1+X1d3rj7ft/bvlTxNWm5eeHh4eK2uX13VTt8Px1U7yduv7twPFh4eHt4eL+9uws6H6X55yIfv8j4eHh7er/ImG+v86f1igIeHh/d/8eYRRtL1STCBh4eH905eHgckIeypOHjeHzw8PLwNXnWK/wufF+t7eHh4eIOqenUxSKb4fHtdXQxe/AoPDw9vgZe8fhI6zDfZkyADDw8Pb4OXl/aTwlh1ys4Xg/xdP36Fh4eHt8arbnOr7GrL1Yj5sh08PDy8BV51F5oXpfZy1OoA4eHh4Z3lVYPXszFuPnD3S9FDgIuHh4d3lJeHqs11Jj5+2muh3DIeHh7emDeJWeehbY+dfBMPDw/vPbzekYLJslENIMpLCx4eHt4yb1LcyjH39/PvRLEFHh4e3hqvd3h0Eun2lpDk6YswAg8PD2+B13tNfnSg2tFJtPGivoeHh4d3lFeNJCbLxvygVbIRx8PDw9vmVSfxvEM5Mr9f7hseHh7eAq8X2uaRxCT2zaPehzt4eHh4R3l5J3qfJ4erkjD3oSd4eHh4C7xeeSkv6ucBbo8UDSseHh7eGq83TVd/W91eJ2Wwh1AYDw8Pb5nXK/ZX44n8uEA1/MXDw8N7D6863VcPV+UFs3xD3wyF8fDw8A7x5lN23qHewYJJ0IyHh4e3x2uWl+LIIIl9e1Hvw2KDh4eHd5T3Wbx6xwJ6wzE50oqHh4e3x5uU8Hvb8clhhd5WHg8PD2+DVw0d8qi3N2T5chLFwXh4eHhrvHyCrt45VTBrDhYeHh7en+Hl1NExqWDgHr6Ph4eH96u8XmB6Knpo9gEPDw9vjTcvelUXlV4IEp2GwMPDw1vmVf/qVw9OVYev2sKosoeHh4dX430B57OccbMXUIsAAAAASUVORK5CYII=" alt="微信分享二维码">
     </div>
 </div>
 
